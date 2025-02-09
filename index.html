@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke and Fact Generator</title>
+    
+    <link rel="stylesheet" href="design.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <section class="title">
+        
+        <h1>Joke <img src="mode.png" alt="mode" id="mode">r Fact Generator</h1>
+    </section>
+    <section class="main">
+        <div class="joke card">
+            <!-- if expanded -->
+             <div class="reveal-joke reveal">
+                <div class="card-header">
+                    <h1 class="card-title">Joke</h1>
+                    <img src="copy.png" alt="copy" class="copy-icon" id="copy-joke" onclick="copy('joke')">
+                </div>
+                <h1 class="joke-box text-box"></h1>
+                
+             </div>
+             <h2 id="generate-joke-btn" class="generate-btn" onclick="generate('joke')">Generate a Joke</h2>
+        </div>
+        <div class="fact card">
+            <!-- if expanded -->
+            <div class="reveal-fact reveal">
+                <div class="card-header">
+                    <h1 class="card-title">Fact</h1>
+                    <img src="copy.png" alt="copy" class="copy-icon" id="copy-fact" onclick="copy('fact')">
+                </div>
+                <h1 class="fact-box text-box"></h1>
+                
+             </div>
+            <h2 id="generate-fact-btn" class="generate-btn" onclick="generate('fact')">Generate a Fact</h2>
+        </div>
+    </section>
+
+    <script src="backend.js"></script>
+</body>
+</html>

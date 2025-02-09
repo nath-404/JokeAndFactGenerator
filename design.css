@@ -1,0 +1,213 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Julius Sans One", serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.title {
+    height: 20vh;
+    width: 100vw;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 8px 13px 1px rgba(0, 0, 0, .25);
+    font-size: 1.5rem;
+    transition: 0.7s;
+}
+.main {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 3rem;
+}
+
+.card {
+    height: 10rem;
+    width: 20rem;
+    margin: 0 1rem;
+    border-radius: 1rem;
+    box-shadow: 0px 8px 13px 1px rgba(0, 0, 0, .25);
+    align-content: center;
+    cursor: pointer;
+    user-select: none;
+    transition: .05s ease-in-out;
+    position: relative;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+
+.expanded {
+    height: 25rem;
+}
+.expanded:hover {
+    transition: 1s ease;
+    transform: scale(1);
+}
+
+.reveal {
+    display: none;
+    text-align: center;
+    flex-direction: column;
+    padding: 1.3rem;
+    height: 100%;
+}
+.card-title {
+    text-align: left;
+    width: 100%;
+    font-size: 2rem;
+    animation: slideIn 0.5s;
+    transition: 0.7s;
+}
+@keyframes slideIn {
+    0% {
+        transform: translateX(70%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.generate-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.7s;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.card.expanded .generate-btn {
+    top: 93%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    box-shadow: 0px 8px 13px 1px rgba(0, 0, 0, .25);
+    padding: .5rem;
+    width: 85%;
+    border-radius: .7rem;
+    height: fit-content;
+}
+.card.expanded .generate-btn:hover {
+    transform: translate(-50%, -100%) scale(1.1);
+    box-shadow: 0px 10px 15px 2px rgba(0, 0, 0, 0.3);
+}
+.card.expanded .generate-btn:active {
+    transform: translate(-50%, -100%) scale(.9);
+    box-shadow: 0px 10px 15px 2px rgba(0, 0, 0, 0.3);
+}
+
+.text-box {
+    margin-top: 2rem;
+    height: 14.2rem;
+    overflow: auto;
+    padding: 0 .4rem;
+    transition: 0.7s;
+}
+.text-box::-webkit-scrollbar {
+    width: 5px;
+}
+.text-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.text-box::-webkit-scrollbar-thumb {
+    background: rgba(100, 100, 100, 0.5);
+    border-radius: 10px;
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+}
+.copy-icon {
+    width: 2rem;
+    height: 2rem;
+    display: none;
+    animation: pop 0.5s ease-out forwards;
+    transition: 0.7s;
+}
+
+@keyframes pop {
+    0% {
+        clip-path: circle(0% at 50% 50%);
+        transform: scale(0);
+    }
+    50% {
+        clip-path: circle(50% at 50% 50%);
+        transform: scale(1.2);
+    }
+    100% {
+        clip-path: circle(100% at 50% 50%);
+        transform: scale(1);
+    }
+}
+
+.copy-notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#mode {
+    height: 2rem;
+    width: 2rem;
+    transform: translate(11%, 12%);
+    cursor: pointer;
+}
+
+@media screen and (max-width : 656px) {
+    .main {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        height: fit-content;
+        padding-bottom: 3rem;
+    }
+    .title > h1 {
+        width: 90%;
+    }
+    .title {
+        padding: 1.2rem;
+    }
+}
